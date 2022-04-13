@@ -13,6 +13,7 @@ import id.ngoding.nonton.core.data.repository.TvShowRepository
 import id.ngoding.nonton.core.domain.repository.IMovieRepository
 import id.ngoding.nonton.core.domain.repository.ITvShowRepository
 import id.ngoding.nonton.core.util.AppExecutors
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -49,10 +50,15 @@ val networkModule = module {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         }
 
+        val certificatePinner = CertificatePinner.Builder()
+            .add(BuildConfig.HOSTNAME, "sha256/oD/WAoRPvbez1Y2dfYfuo4yujAcYHXdv1Ivb2v2MOKk=")
+            .build()
+
         OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .readTimeout(30, TimeUnit.SECONDS)
             .connectTimeout(30, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
 
