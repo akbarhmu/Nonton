@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.6.20'
+    ext.archLifecycleVersion = '2.4.1'
+    ext.lifeCycleExtensionVersion = '2.2.0'
+    ext.activityKtxVersion = "1.4.0"
+    ext.swipeRefreshVersion = "1.1.0"
+    ext.coreVersion = '1.7.0'
+    ext.appCompatVersion = '1.4.1'
+    ext.constraintLayoutVersion = '2.1.3'
+    ext.recyclerViewVersion = '1.2.1'
+    ext.materialVersion = '1.5.0'
+    ext.retrofitVersion = '2.9.0'
+    ext.okHttpVersion = '4.9.2'
+    ext.koinVersion = '3.1.5'
+    ext.roomVersion = '2.4.2'
+    ext.coroutinesVersion = '1.3.7'
+    ext.glideVersion = '4.12.0'
+    ext.viewPager2Version = '1.0.0'
+    ext.preferenceVersion = '1.2.0'
+    ext.dataStoreVersion = '1.0.0'
+    ext.mockitoCoreVersion = '4.2.0'
+    ext.coroutineTestVersion = '1.4.2'
+    ext.androidxCoreTestingVersion = '2.1.0'
+    ext.jUnitTestingVersion = '4.13.2'
+    ext.espressoTestingVersion = '3.4.0'
+    ext.androidxTestVersion = "1.4.0"
+    ext.leakcanaryVersion = "2.8.1"
+}
+
+plugins {
+    id 'com.android.application' version '7.1.2' apply false
+    id 'com.android.library' version '7.1.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.20' apply false
+    id 'com.android.dynamic-feature' version '7.1.2' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

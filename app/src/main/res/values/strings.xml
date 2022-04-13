@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Nonton</string>
+    <string name="movies_tagline">Find Movies &amp; TV Show Online</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">TV Show</string>
+    <string name="tab_text_3">Favorite</string>
+    <string name="desc_img_poster">Movies Poster</string>
+<!--    <string name="genre">Genre:</string>-->
+    <string name="share">Share</string>
+<!--    <string name="year">Year :</string>-->
+    <string name="desc_app_logo">App Logo</string>
+    <string name="share_title">Share Movie &amp; TV Show Detail</string>
+    <string name="share_message">Find %1$s on Nonton App</string>
+    <string name="release_date">Release Date:</string>
+    <string name="favorite_button">Favorite Button</string>
+    <string name="title_favorite">Favorite</string>
+</resources>
