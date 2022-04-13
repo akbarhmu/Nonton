@@ -13,6 +13,9 @@ import id.ngoding.nonton.core.data.repository.TvShowRepository
 import id.ngoding.nonton.core.domain.repository.IMovieRepository
 import id.ngoding.nonton.core.domain.repository.ITvShowRepository
 import id.ngoding.nonton.core.util.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SQLiteDatabase.getBytes
+import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -36,7 +39,11 @@ val repositoryModule = module {
 val appModule = module {
     single { GsonBuilder().setLenient().create() }
     single {
+        val passphrase: ByteArray = getBytes("nonton".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(androidContext(), CatalogDatabase::class.java, "catalog-movies-db")
+            .fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
             .build()
     }
     factory { get<CatalogDatabase>().movieDao() }
